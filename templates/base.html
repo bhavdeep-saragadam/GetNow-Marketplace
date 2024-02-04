@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>GetNow Marketplace</title>
+
+    <style>
+        /* Custom CSS styles */
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: #000;
+        }
+
+        .navbar-toggler {
+            border-color: transparent;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url('path/to/your/toggler-icon.png');
+        }
+
+        .navbar-nav .nav-link {
+            color: #000;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #888;
+        }
+
+        .search-form input[type="search"] {
+            border-radius: 20px;
+            background-color: #f5f5f5;
+            border-color: transparent;
+        }
+
+        .search-form .btn {
+            border-radius: 20px;
+            background-color: #f5f5f5;
+            border-color: transparent;
+            color: #888;
+        }
+
+        .search-form .btn:hover {
+            background-color: #eee;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+ 
+      <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+            <span class="fs-4">GetNow Marketplace</span>
+            <p>BETA UNRELEASED VERSION</p>
+          </a>
+    
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a href="{% url 'product_list' %}" class="nav-link active" aria-current="page">Shop</a></li>
+            <li class="nav-item"><a href="{% url 'create_product' %}" class="nav-link">Sell</a></li>
+            <li class="nav-item"><a href="{% url 'user_profile' %}" class="nav-link">Profile</a></li>
+            <li class="nav-item"><a href="{% url 'edit_profile' %}" class="nav-link">Edit Profile</a></li>
+            {% if user.is_authenticated %}
+
+            <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
+            {% else %}
+            <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Login</a></li>
+            <li class="nav-item"><a href="{% url 'signup' %}" class="nav-link">Sign In</a></li>
+            {% endif %}
+            
+          </ul>
+        </header>
+      </div>
+    
+
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+      <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+        <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+      </a>
+      <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2024 Saragadam Solutions, Inc</span> <br>
+     
+
+    </div>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+      <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+      <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+    </ul>
+  </footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="{% static 'js/jquery-3.5.1.slim.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>

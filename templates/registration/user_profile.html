@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}User Profile{% endblock %}
+
+{% block content %}
+    <h2>{{ user.username }}'s Profile</h2>
+    
+    <p>Email: {{ user.email }}</p>
+    <p>Number: {{ user.contact }}</p>
+    <p>Bio: {{ user.bio }}</p>
+
+    <h3>Posts by {{ user.username }}</h3>
+    <div style="background-color: white; padding: 20px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        {% for product in products %}
+            <div class="product-container" style="margin-bottom: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
+                <h2>{{ product.title }}</h2>
+                <p>{{ product.description }}</p>
+                <p>Price: ${{ product.price }}</p>
+                <p>Seller: {{ product.seller.username }}</p>
+                <p>Contact: {{ product.seller.email }}</p>
+                <a href="{% url 'product_detail' product.id %}">View Details</a>
+            </div>
+    {% endfor %}
+{% endblock %}

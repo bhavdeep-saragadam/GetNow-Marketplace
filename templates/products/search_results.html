@@ -1,0 +1,17 @@
+<!-- products/search_results.html -->
+{% extends 'base.html' %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+    <h2>Search Results for "{{ query }}"</h2>
+    {% if results %}
+        <ul>
+            {% for product in results %}
+                <li><a href="{% url 'product_detail' product_id=product.id %}">{{ product.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+{% endblock %}
