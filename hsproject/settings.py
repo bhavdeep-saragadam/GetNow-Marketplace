@@ -79,11 +79,15 @@ WSGI_APPLICATION = 'hsproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'URL': 'postgresql://postgres:Be1G356d354bCF-adbEG-fC3c52gFab4@postgres.railway.internal:5432/railway',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'Be1G356d354bCF-adbEG-fC3c52gFab4',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'PORT': 11601,
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
